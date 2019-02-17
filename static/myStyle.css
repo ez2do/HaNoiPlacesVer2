@@ -1,0 +1,62 @@
+#myPic{
+	transform: rotate(270deg);
+}
+
+#my-img-container{
+	overflow-y: scroll;
+}
+
+#firstRow{
+	margin-top: 80px;
+}
+
+.card-img-top{
+	width: 100%;
+	height: 15vw;
+	object-fit: cover;
+}
+
+.myBtn{
+	margin: 0.15rem;
+}
+
+.no-padding{
+	padding: 0;
+}
+
+.btn-circle{
+	border-radius: 50%;
+}
+
+.card{
+	width: 100%;
+}
+
+/* iframe adjust */
+.be-white{
+	color: white !important;
+}
+
+#frame-container{
+	min-height: 400px;
+}
+
+#video-frame .modal-dialog .modal-content{
+	background-color: rgba(129, 129, 129, 0) !important;
+}
+
+.video-wrapper{
+	position: relative;
+	overflow: hidden;
+	padding-top: 56.25%;
+	text-align: center;
+}
+
+.iframe-video{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	border: 0;
+}

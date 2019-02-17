@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>My Site</title>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Material Design Bootstrap -->
+	<link href="{{url_for('static', filename='MDB-Free_4.7.0/css/mdb.min.css')}}" rel="stylesheet">
+	<link rel="stylesheet" href="{{url_for('static', filename='MDB-Free_4.7.0/css/bootstrap.min.css')}}">
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+	<link href="{{url_for('static', filename='myStyle.css')}}" rel="stylesheet">
+</head>
+
+<body>
+	<!-- Nav bar -->
+	<nav class="navbar navbar-light bg-light navbar-expand-lg fixed-top">
+		<a href="#" class="navbar-brand">Ha Noi places</a>
+		<button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarCollapse">
+			<ul class="navbar-nav ml-auto">
+				<li class="navbar-item">
+					<a href="#" class="nav-link">Homepage</a>
+				</li>
+				<li class="navbar-item">
+					<a href="#" class="nav-link" data-toggle="modal" data-target="#aboutMeModal">About me</a>
+				</li>
+				<li class="navbar-item">
+					<a href="#" class="nav-link" data-toggle="modal" data-target="#loginForm">Login</a>
+				</li>
+				<li>
+					<button class="btn btn-dark" data-toggle="modal" data-target="#myModal">Launch modal</button>
+				</li>
+				<li>
+					<button class="btn btn-primary" data-toggle="modal" data-target="#addPlace">Add place</button>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<main>
+		<!-- Modal -->
+		<div class="modal fade" id="myModal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Hello dialog</h5>
+						<button type="button" class="close" data-dismiss="modal">
+							<span>&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<p>Ronaldo an cut bo kho</p>
+					</div>
+					<div class="modal-footer">
+						<button class="btn btn-primary" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- about me Modal -->
+		<div class="modal fade" id="aboutMeModal">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">Tran Tuan Anh</h4>
+						<button type="button" class="close" data-dismiss="modal">
+							<span>&times;</span>
+						</button>
+					</div>
+					<div class="modal-body" id="my-img-container">
+						<img src="{{url_for('static', filename='img/IMG_20190131_184722.jpg')}}" class="img-fluid"
+							id="myPic" alt="me">
+						<div class="mask rgba-white-light"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Youtube video modal -->
+		<div class="modal fade" id="video-frame">
+			<div class="modal-dialog modal-lg modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title"></h4>
+						<button type="button" class="close" data-dismiss="modal">
+							<span class="be-white">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body" id="frame-container">
+						<div class="video-wrapper">
+							<iframe class="iframe-video" allow="fullscreen"></iframe>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Add place modal -->
+		<div class="modal fade" id="addPlace">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">Place info</h4>
+						<button type="button" class="close" data-dismiss="modal">
+							<span>&times;</span>
+						</button>
+					</div>
+
+					<div class="modal-body">
+						<div class="container">
+							<div class="row">
+								<form action="/" method="post" enctype="multipart/form-data">
+									<div class="form-group row">
+										<label class="col-sm-3 col-form-label">Name</label>
+										<div class="col-sm-9">
+											<input type="text" class="form-control" name='name'>
+										</div>
+									</div>
+
+									<div class="form-group row">
+										<label class="col-sm-3 col-form-label">Type</label>
+										<div class="col-sm-9">
+											<input type="text" class="form-control" name='type'>
+										</div>
+									</div>
+
+									<div class="form-group row">
+										<label class="col-sm-3 col-form-label">Description</label>
+										<div class="col-sm-9">
+											<textarea type="text" class="form-control" name='description'></textarea>
+										</div>
+									</div>
+
+									<div class="form-group row">
+										<label class="col-sm-3 col-form-label">Image</label>
+										<div class="col-sm-9">
+											<input type="file" accept='image/*' name='image'>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-sm-9 offset-sm-3">
+											<button type="submit" class="btn btn-primary" id="add-new-place">Add to
+												database</button>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Form -->
+		<div class="modal fade" id="loginForm">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">Login form</h4>
+						<button type="button" class="close" data-dismiss="modal">
+							<span>&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="container">
+							<div class="row">
+								<form>
+									<div class="form-group row">
+										<label class="col-sm-3 col-form-label">Email</label>
+										<div class="col-sm-9">
+											<input type="text" class="form-control">
+										</div>
+									</div>
+									<div class="form-group row">
+										<label class="col-sm-3 col-form-label">Password</label>
+										<div class="col-sm-9">
+											<input type="password" class="form-control">
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-sm-9 offset-sm-3">
+											<button type="submit" class="btn btn-primary">Login now</button>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<!-- Grid system -->
+			<div class="row" id="firstRow">
+				{% for place in places %}
+				<div class="col-lg-4 col-md-6 col-sm-12 mb-4 d-flex align-items-stretch">
+					<!-- Card -->
+					<div class="card" id="card{{ place.id }}">
+						<!-- Card image -->
+						<div class="view overlay video-trigger" data-toggle="modal" data-target="#video-frame">
+							<img src="{{url_for('static', filename='')}}{{place.img_path}}" class="card-img-top"
+								alt="{{place.name}}">
+							<a href="#">
+								<div class="mask rgba-white-light"></div>
+							</a>
+						</div>
+						<div class="card-body video-trigger" data-toggle="modal" data-target="#video-frame">
+							<!-- Title -->
+							<h4 class="card-title">
+								<span class="place-name">{{place.name}}</span>
+								<span class="float-right" id="point-of-{{place.id}}">
+									{{"%.2f"|format(place.rating)}}
+								</span>
+							</h4>
+							<p class="card-text place-description">{{place.description}}</p>
+						</div>
+
+						<div class="card-body container border-top">
+							<div class="row">
+								<div class="col-lg-3 col-md-3">Rate it</div>
+								<div class="col-lg-9 col-md-9  no-padding">
+									<div class="btn-toolbar d-flex justify-content-end" role="toolbar">
+										<button class="btn btn-primary btn-circle myBtn update-button" type="submit"
+											placeID="{{place.id}}" value="1">1</button>
+										<button class="btn btn-primary btn-circle myBtn update-button" type="submit"
+											placeID="{{place.id}}" value="2">2</button>
+										<button class="btn btn-primary btn-circle myBtn update-button" type="submit"
+											placeID="{{place.id}}" value="3">3</button>
+										<button class="btn btn-primary btn-circle myBtn update-button" type="submit"
+											placeID="{{place.id}}" value="4">4</button>
+										<button class="btn btn-primary btn-circle myBtn update-button" type="submit"
+											placeID="{{place.id}}" value="5">5</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</main>
+</body>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="{{url_for('static', filename='jquery-3.3.1.min.js')}}"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	crossorigin="anonymous"></script>
+<script src="{{url_for('static', filename='myScript.js')}}"></script>
+
+</html>
