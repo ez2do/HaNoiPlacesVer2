@@ -2,8 +2,8 @@
 <html>
 
 <head>
-	<title>My Site</title>
-	<link rel="shortcut icon" type="image/x-icon" href="static/img/Network-Places-256.png"/>
+	<title>Hanoi Places</title>
+	<link rel="shortcut icon" type="image/x-icon" href="static/img/Network-Places-256.png" />
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,15 +14,17 @@
 	<link href="{{url_for('static', filename='myStyle.css')}}" rel="stylesheet">
 </head>
 
-<body>
+<body class="rgba-stylish-light">
+	<!-- Scrolling represent -->
+	<div id="scroll-progress"></div>
 	<!-- Nav bar -->
-	<nav class="navbar navbar-light bg-light navbar-expand-lg fixed-top">
+	<nav class="navbar navbar-dark bg-dark navbar-expand-lg fixed-top">
 		<a href="#" class="navbar-brand">Ha Noi places</a>
 		<button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarCollapse">
-			<ul class="navbar-nav ml-auto">
+			<ul class="navbar-nav mr-auto">
 				<li class="navbar-item">
 					<a href="#" class="nav-link">Homepage</a>
 				</li>
@@ -32,15 +34,32 @@
 				<li class="navbar-item">
 					<a href="#" class="nav-link" data-toggle="modal" data-target="#loginForm">Login</a>
 				</li>
-				<li>
-					<button class="btn btn-dark" data-toggle="modal" data-target="#myModal">Launch modal</button>
-				</li>
-				<li>
-					<button class="btn btn-primary" data-toggle="modal" data-target="#addPlace">Add place</button>
-				</li>
 			</ul>
+			<form class="form-inline ml-auto">
+					<div class="md-form my-0">
+						<input class="form-control mr-sm-2" type="text" placeholder="Search">
+					</div>
+				</form>
+			<button class="btn btn-dark" data-toggle="modal" data-target="#myModal">Launch modal</button>
+			<button class="btn btn-primary" data-toggle="modal" data-target="#addPlace">Add place</button>
+
+
 		</div>
 	</nav>
+
+	<div id="intro" class="view">
+		<div class="mask rgba-black-strong">
+			<div class="container-fluid d-flex justify-content-center align-items-center h-100">
+				<div class="row d-flex justify-content-center text-center">
+					<div class="col-md-12">
+						<h2 class="display-4 font-weight-bold white-text pt-5 mb-2">Ha Noi</h2>
+						<hr class="hr-light">
+						<h4 class="white-text my-4">Let's discover our city</h4>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<main>
 		<!-- Modal -->
@@ -253,13 +272,8 @@
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="{{url_for('static', filename='jquery-3.3.1.min.js')}}"></script>
-<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-	crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-	crossorigin="anonymous"></script>
+<script src="{{url_for('static', filename='popper.min.js')}}"></script>
+<script src="{{url_for('static', filename='bootstrap.min.js')}}"></script>
 <script src="{{url_for('static', filename='myScript.js')}}"></script>
 
 </html>

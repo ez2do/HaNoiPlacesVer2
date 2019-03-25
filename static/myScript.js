@@ -46,3 +46,11 @@ $(document).ready(function(){
 		});
 	})
 })
+
+/* pure js */
+/* scroll bar process */
+window.addEventListener("scroll", () => {
+	bar = document.getElementById("scroll-progress");
+	let max = document.body.scrollHeight - innerHeight;
+	bar.style.width = (pageYOffset / max) * 100 + '%';
+})
